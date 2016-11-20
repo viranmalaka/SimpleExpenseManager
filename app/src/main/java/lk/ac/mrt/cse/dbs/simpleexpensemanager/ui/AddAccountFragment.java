@@ -18,6 +18,7 @@ package lk.ac.mrt.cse.dbs.simpleexpensemanager.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
     }
 
     public AddAccountFragment() {
+
     }
 
     @Override
@@ -72,7 +74,7 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                 String bankNameStr = bankName.getText().toString();
                 String accountHolderStr = accountHolderName.getText().toString();
                 String initialBalanceStr = initialBalance.getText().toString();
-
+                Log.d("Logging", "Button Click");
 
                 if (accountNumStr.isEmpty()) {
                     accountNumber.setError(getActivity().getString(R.string.err_acct_number_empty));
@@ -95,6 +97,7 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                 }
 
                 if (currentExpenseManager != null) {
+                    Log.d("Logging", "AddAccount Fragment");
                     currentExpenseManager.addAccount(accountNumStr, bankNameStr, accountHolderStr,
                             Double.parseDouble(initialBalanceStr));
                 }
