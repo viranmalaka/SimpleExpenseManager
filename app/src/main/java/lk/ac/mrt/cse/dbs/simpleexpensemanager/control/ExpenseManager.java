@@ -16,6 +16,8 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
+import android.support.v7.app.AppCompatActivity;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,6 +38,8 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 public abstract class ExpenseManager implements Serializable {
     private AccountDAO accountsHolder;
     private TransactionDAO transactionsHolder;
+
+    private static AppCompatActivity mainContext;
 
     /***
      * Get list of account numbers as String.
@@ -133,4 +137,11 @@ public abstract class ExpenseManager implements Serializable {
      * objects will be initialized.
      */
     public abstract void setup() throws ExpenseManagerException;
+
+    public static AppCompatActivity getMainActivity(){
+        return mainContext;
+    }
+    public static void setMainActivity(AppCompatActivity a){
+        mainContext = a;
+    }
 }
